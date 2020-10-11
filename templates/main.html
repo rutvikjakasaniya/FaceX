@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceX</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+            <ul>
+                <li style="float:left"><a href="#logo">FaceX</a></li>
+                <li style="float:right"><a href="#contact">Contact Us</a></li>
+                <li style="float:right"><a href="#find">Find</a></li>
+                <li style="float:right"><a href="#search">Search</a></li>
+              </ul>
+    </nav>
+
+    <div class="header overlay">
+        <h1>FaceX - Track Missing Person</h1>
+        <p>Find missing People using Facial Recognition
+            Let us save lives with Machine Learning. A practical Machine Learning Project.</p>
+    </div>
+    
+    <div class="find split">
+        <h1>Find Missing Person</h1>
+        <form action="#">
+            <label for="fname">First Name: </label>
+            <input type="text" name="fname"><br><br>    
+
+            <label for="lname">Last Name: </label>
+            <input type="text" name="lname"><br><br>
+
+            <label for="contact">Contact No: </label>
+            <input type="text" name="contact" pattern="[0-9]{10}"><br><br>
+
+            <label for="image">Images Upload: </label>
+            <input type="file" name="image" multiple>  
+
+            <br><br><input type="submit" value="upload">
+        </form>
+    </div>
+
+    <div class="search split">
+        <h1>Search Using Photo or Video Footage</h1>
+        <form action="{{ url_for('predict')}}" method="POST">
+            <label for="imagevideo">Image/Video: </label>
+            <input type="file" name="imagevideo">
+
+            <br><br><input type="submit" value="search">
+        </form>
+        {{prediction_text}}
+    </div>
+    
+</body>
+</html>
